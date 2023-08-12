@@ -19,7 +19,7 @@ async function main() {
 
   if (!res.confirm) return;
   
-   let n = jsonfile.readFileSync(filepath);
+  let n = jsonfile.readFileSync(filepath);
   const DATE = moment(n.data).subtract(1, 'd').format();
 
   let dataArr = [];
