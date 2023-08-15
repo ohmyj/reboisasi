@@ -29,9 +29,13 @@ async function main() {
   }
 
   for (let i = 0; i < res.totalCommit; i++) {
-    if([1, 100, 200, 300, 400, 500, 800, 1000].includes(i+1)) console.log("now", i+1);
+    const start = performance.now();
     await jsonfile.writeFile(filepath, dataArr[i]);
     await git.add('./*').commit(dataArr[i].data, { "--date": dataArr[i].data });
+    if ([1, 100, 200, 300, 400, 500, 800, 1000].includes(i + 1)) {
+      const timeTaken = (performance.now() - start).toFixed(2);
+      console.log("now", i+1, timeTaken, "ms");
+    }
   }
   await git.push();
 }
