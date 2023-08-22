@@ -29,7 +29,7 @@ async function main() {
   }
 
   for (let i = 0; i < res.totalCommit; i++) {
-    console.log("now", i+1)
+    if([1, 100, 200, 300, 400, 500, 800, 1000].includes(i+1)) console.log("now", i+1);
     await jsonfile.writeFile(filepath, dataArr[i]);
     await git.add('./*').commit(dataArr[i].data, { "--date": dataArr[i].data });
   }
