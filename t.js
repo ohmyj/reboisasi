@@ -12,14 +12,15 @@ const filepath = "./data.json";
 
 async function main() {
   const res = await prompts([
-    { type: 'number', name: 'days', message: 'days to subtract?', initial: 0 },
+//    { type: 'number', name: 'days', message: 'days to subtract?', initial: 0 },
     { type: 'number', name: 'totalCommit', message: 'how many commits?', initial: 999 },
     { type: 'confirm', name: 'confirm', message: 'proceed?', initial: true }
   ]);
 
   if (!res.confirm) return;
-
-  const DATE = moment().subtract(res.days, 'd').format();
+  
+   let n = jsonfile.readFileSync(filepath);
+  const DATE = moment(n.data).subtract(1, 'd').format();
 
   let dataArr = [];
   for (let i = 0; i < res.totalCommit; i++) {
