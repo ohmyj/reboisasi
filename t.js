@@ -13,7 +13,7 @@ const filepath = "./data.json";
 async function main() {
   const res = await prompts([
     { type: 'number', name: 'days', message: 'days to subtract?', initial: 0 },
-    { type: 'number', name: 'totalCommit', message: 'how many commits?', initial: 7 },
+    { type: 'number', name: 'totalCommit', message: 'how many commits?', initial: 999 },
     { type: 'confirm', name: 'confirm', message: 'proceed?', initial: true }
   ]);
 
