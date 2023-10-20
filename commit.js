@@ -31,12 +31,12 @@ async function main() {
 
     let data = { data: DATE, r: _s.passGen(8).result };
     jsonfile.writeFile(filepath, data, async function () {
-      console.log(data);
+      console.log(data, i);
       await git.add('./*').commit(DATE, { "--date": DATE });
     });
     
     i++
-  }, 500)
+  }, 100)
 }
 
 main();
