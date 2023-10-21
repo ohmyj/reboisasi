@@ -34,11 +34,9 @@ async function main() {
       console.log(data);
       await git.add('./*').commit(DATE, { "--date": DATE });
     });
-
-    await git.push();
     
     i++
-  }, 3000)
+  }, 500)
 }
 
 main();
