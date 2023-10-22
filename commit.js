@@ -3,7 +3,7 @@ require('dotenv').config();
 const jsonfile = require("jsonfile");
 const moment = require("moment");
 const sgit = require("simple-git");
-const git = sgit({ config: [ `http.extraHeader=Authorization: token ${btoa(process.env.TOKEN)}` ] });
+const git = sgit({ config: [ `http.extraHeader=Authorization: Basic ${btoa(process.env.TOKEN)}` ] });
 const _s = require("scramb");
 const { setIntervalAsync, clearIntervalAsync } = require('set-interval-async');
 const prompts = require('prompts');
